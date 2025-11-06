@@ -6,7 +6,7 @@
 
 ---
 
-## Dokumentasi Pengujian Endpoint API
+## Dokumentasi Pengujian Auth
 
 | Keterangan                             | Screenshot                                                         |
 | :------------------------------------- | :----------------------------------------------------------------: |
