@@ -1,48 +1,47 @@
-const express = require('express');
+const express = require("express");
 const router = express.Router();
 
+// Data Array Buku
 let books = [
-  { id: 1, title: 'Book 1', author: 'Author 1' },
-  { id: 2, title: 'Book 2', author: 'Author 2' }
+  { id: 1, title: "Book 1", author: "Author 1" },
+  { id: 2, title: "Book 2", author: "Author 2" },
+  { id: 3, title: "Book 3", author: "Author 3" },
+  { id: 4, title: "Book 4", author: "Author 4" },
 ];
 
-// GET semua buku
-router.get('/', (req, res) => {
+router.get("/", (req, res) => {
   res.json(books);
 });
 
-// GET buku berdasarkan ID
-router.get('/:id', (req, res) => {
-  const book = books.find(b => b.id === parseInt(req.params.id));
-  if (!book) return res.status(404).send('Book not found');
+router.get("/:id", (req, res) => {
+  const book = books.find((b) => b.id === parseInt(req.params.id));
+  if (!book) return res.status(404).send("Book not found");
+
   res.json(book);
 });
 
-// POST tambah buku baru
-router.post('/', (req, res) => {
+router.post("/", (req, res) => {
   const { title, author } = req.body;
   if (!title || !author) {
-    return res.status(400).json({ message: 'Title and author are required' });
+    return res.status(400).json({ message: "Title and author are required" });
   }
-
   const book = {
     id: books.length + 1,
     title,
-    author
+    author,
   };
-
   books.push(book);
   res.status(201).json(book);
 });
 
-// PUT update buku
-router.put('/:id', (req, res) => {
-  const book = books.find(b => b.id === parseInt(req.params.id));
-  if (!book) return res.status(404).send('Book not found');
+// PUT
+router.put("/:id", (req, res) => {
+  const book = books.find((b) => b.id === parseInt(req.params.id));
+  if (!book) return res.status(404).send("Book not found");
 
   const { title, author } = req.body;
   if (!title || !author) {
-    return res.status(400).json({ message: 'Title and author are required' });
+    return res.status(400).json({ message: "Title and author are required" });
   }
 
   book.title = title;
@@ -50,15 +49,14 @@ router.put('/:id', (req, res) => {
   res.json(book);
 });
 
-// DELETE hapus buku
-router.delete('/:id', (req, res) => {
-  const index = books.findIndex(b => b.id === parseInt(req.params.id));
-  if (index === -1) return res.status(404).send('Book not found');
+// DELETE
+router.delete("/:id", (req, res) => {
+  const bookIndex = books.findIndex((b) => b.id === parseInt(req.params.id));
+  if (bookIndex === -1) return res.status(404).send("Book not found");
 
-  const deletedBook = books.splice(index, 1);
-  res.json(deletedBook[0]);
+  const [deletedBook] = books.splice(bookIndex, 1);
+
+  res.json(deletedBook);
 });
 
 module.exports = router;
-module.exports.default = router; // ✅ tambahkan baris ini
-
