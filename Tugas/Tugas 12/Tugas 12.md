@@ -7,4 +7,4 @@
 ---
 | Keterangan | Screenshot |
 | :---         |     :---:      |
-| Tugas 12 | ![](./SS/tugas12.jpeg) |
+| Tugas 12 | ![](ss/tugas12.jpeg) |

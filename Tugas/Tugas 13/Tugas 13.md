@@ -7,5 +7,5 @@
 ---
 | Keterangan | Screenshot |
 | :---         |     :---:      |
-| Tugas 13 | ![](./SS/tugas13.jpeg) |
-| Tugas 13 | ![](./SS/tugas13(2).jpeg) |
+| Tugas 13 | ![](ss/tugas13.jpeg) |
+| Tugas 13 | ![](ss/tugas13(2).jpeg) |
